@@ -31,25 +31,15 @@ function generatePassword(option) {
 
     // 排除不要的字串
 
-    // let a = option.excludeCharacters.split('')
-    // a.forEach(element => {
-    //     let index = collection.indexOf(element)
-    //     collection.splice(index,1)
-    // })
-
     if (option.excludeCharacters) {
         collection = collection.filter(
             character => !option.excludeCharacters.includes(character))
     }
+    //判斷collection 是否為空值
+    if (collection.length === 0){
+        return 'You must select at least one character set.'
+    }
 
-    // if (option.excludeCharacters) {
-    //     collection = collection.filter((charater) => {
-    //         if (option.excludeCharacters.includes(charater)) {
-    //             return false
-    //         }
-    //         return true
-    //     })
-    // }
     // 印出指定長度
     let password = ''
     for (i = 1; i <= option.length; i++) {
